@@ -1,0 +1,28 @@
+
+<app-topo></app-topo>
+<div *ngIf="progressPlay; else fimDeJogo">
+    <app-painel (finishPlay)=" finishPlay($event)"></app-painel>
+</div>
+<ng-template #fimDeJogo>
+    <div *ngIf="typeFinish === 'Derrota'; else fimDeJogoVitoria" class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col">
+                <h3 style="color: #f00">Fim de jogo, infelizmente você perdeu!! </h3>
+                <button class="btn btn-primary" (click)="restartPlay()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+  
+</ng-template>
+
+<ng-template #fimDeJogoVitoria>
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col">
+                <h3 style="color: #0f0">Fim de jogo, Parabéns você ganhou!! </h3>
+                <button class="btn btn-primary" (click)="restartPlay()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
